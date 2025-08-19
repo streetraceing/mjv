@@ -20,7 +20,9 @@ function injectScript(path) {
     });
 }
 (() => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("mjv content script start");
     if (/\bjson\b/i.test(document.contentType)) {
+        console.log("mjv running");
         const html = document.documentElement;
         const pre = document.body.querySelector("pre");
         if (html.classList.contains("mjv-initialized") || !pre)
