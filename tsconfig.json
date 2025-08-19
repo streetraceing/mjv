@@ -3,15 +3,14 @@
         "target": "ES6",
         "module": "ESNext",
         "strict": true,
-        "outDir": "src",
         "moduleResolution": "node",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "allowJs": true,
         "lib": [
             "DOM",
             "ESNext"
         ],
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "allowJs": true,
         "types": [
             "firefox-webext-browser",
             "requirejs"
@@ -21,6 +20,6 @@
         ]
     },
     "include": [
-        "ts/**/*.ts"
+        "src/**/*.ts"
     ]
 }
