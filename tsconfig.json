@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "ESNext",
+        "strict": true,
+        "outDir": "src",
+        "moduleResolution": "node",
+        "lib": [
+            "DOM",
+            "ESNext"
+        ],
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "allowJs": true,
+        "types": [
+            "firefox-webext-browser",
+            "requirejs"
+        ],
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
+    },
+    "include": [
+        "src-ts/**/*.ts"
+    ]
+}

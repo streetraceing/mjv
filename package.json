@@ -1,0 +1,15 @@
+{
+    "name": "mjvts",
+    "version": "1.0.0",
+    "scripts": {
+        "ts-build": "tsc",
+        "build": "npm run ts-build && web-ext build --overwrite-dest -a ./dist -s ./src",
+        "start": "npm run build && web-ext run --source-dir=dist"
+    },
+    "devDependencies": {
+        "@types/firefox-webext-browser": "^120.0.4",
+        "@types/requirejs": "^2.1.37",
+        "typescript": "^5.9.2",
+        "web-ext": "^8.9.0"
+    }
+}
