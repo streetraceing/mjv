@@ -1,5 +1,7 @@
 {
     "compilerOptions": {
+        "outDir": "dist",
+        "rootDir": "src",
         "target": "ES6",
         "module": "ESNext",
         "strict": true,
@@ -20,6 +22,10 @@
         ]
     },
     "include": [
-        "**/*.ts"
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
     ]
 }
