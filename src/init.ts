@@ -1,5 +1,4 @@
 const container = document.body
-const languages = ["ru", "de", "es", "fr", "it", "ja", "ko", "zh-cn", "zh-tw"]
 const active_language = navigator.language.toLowerCase().split("-")[0]
 
 window.MonacoEnvironment = {
@@ -12,9 +11,9 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e)
 
 require.config({ paths: { vs: container.dataset.path! } })
 
-function initMonaco() {
+function init() {
     require(["vs/editor/editor.main"], () => {
-        const editor = monaco.editor.create(container, {
+        monaco.editor.create(container, {
             value: container.dataset.json!,
             language: "json",
             readOnly: true,
@@ -27,15 +26,11 @@ function initMonaco() {
     })
 }
 
-if (languages.includes(active_language)) {
-    require(
-        [`${container.dataset.path}/nls/nls.messages.${active_language}`],
-        initMonaco,
-        () => {
-            console.warn(`NLS for "${active_language}" not found`)
-            initMonaco()
-        }
-    )
-} else {
-    initMonaco()
-}
+require(
+    [`${container.dataset.path}/nls/nls.messages.${active_language}`],
+    init,
+    () => {
+        console.warn(`NLS for "${active_language}" not found.`)
+        init()
+    }
+)

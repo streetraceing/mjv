@@ -1,4 +1,4 @@
-async function injectScript(path: string): Promise<HTMLScriptElement> {
+async function inject(path: string): Promise<HTMLScriptElement> {
     return new Promise((resolve, reject) => {
         const script = document.createElement("script")
 
@@ -30,7 +30,7 @@ async function injectScript(path: string): Promise<HTMLScriptElement> {
         body.dataset.worker = browser.runtime.getURL("monaco/min/vs/base/worker/workerMain.js")
         body.dataset.json = JSON.stringify(JSON.parse(pre.textContent || ""), null, 2)
 
-        await injectScript("monaco/min/vs/loader.js")
-        await injectScript("init.js")
+        await inject("monaco/min/vs/loader.js")
+        await inject("init.js")
     }
 })()
